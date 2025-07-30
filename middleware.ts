@@ -5,6 +5,7 @@ import { getToken } from "next-auth/jwt"
 export async function middleware(request: NextRequest) {
   // Get the pathname of the request (e.g. /, /admin, /protected)
   const path = request.nextUrl.pathname
+  console.log('middleware path =>', path)
 
   // Check if the path is an admin route
   if (path.startsWith("/admin")) {
