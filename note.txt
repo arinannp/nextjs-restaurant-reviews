@@ -1,0 +1,57 @@
+___________________________________________________________________________________________________________________
+# CLONE PROJECT AND INIT PROJECT
+- npm install OR npm -i
+- set dotenv file (generate random string: openssl rand -base64 32)
+
+# In Git, feat, chore, and fix are commit types used in Conventional Commits 
+to categorize changes made to the codebase. feat signifies a new feature, fix indicates a bug fix, 
+and chore denotes changes to tooling, build processes, or other non-code related updates. 
+Here's a more detailed breakdown: 
+- feat:
+Used when introducing a new functionality or feature to the application. 
+For example, adding a new user interface element or a new data processing pipeline. 
+Medium says "add dark mode toggle for user settings".
+- fix:
+Used when resolving a bug or defect in the code. For instance, fixing a component that 
+renders incorrectly or an issue with data validation. 
+Medium says "resolve issue with course filtering not updating".
+- chore:
+Used for changes that don't fit into feat or fix, and don't directly affect the application's functionality. 
+This includes things like updating dependencies, build configurations, or minor changes to tooling or scripts. 
+Medium says "update ESLint rules and dependencies".
+___________________________________________________________________________________________________________________
+
+
+1. Install Drizzle (DB ORM)
+https://orm.drizzle.team/docs/get-started
+https://orm.drizzle.team/docs/get-started/neon-new
+https://orm.drizzle.team/docs/get-started/postgresql-new
+- npm i drizzle-orm pg dotenv
+- npm i -D drizzle-kit tsx @types/pg
+
+
+2. Install Shadcn (UI TEMPLATE)
+https://ui.shadcn.com/docs/installation
+https://ui.shadcn.com/docs/installation/next
+https://ui.shadcn.com/blocks
+- npx shadcn@latest init
+- npx shadcn@latest add button (install component, for example button)
+
+
+3. Create postgresql database using neon free version
+https://console.neon.tech/app/org-hidden-sunset-59582683/projects
+
+
+4. Generate database schema with drizzle orm
+https://orm.drizzle.team/docs/drizzle-kit-generate
+- npx drizzle-kit generate (delete all directory under /lib/drizzle/* first to see the generated sql)
+
+
+5. Push the database schema with drizzle orm to postgresql db
+https://orm.drizzle.team/docs/drizzle-kit-migrate
+- npx drizzle-kit migrate
+
+6. (Optional) If you have any schema changes to database, you can run command generate then push the changes
+https://orm.drizzle.team/docs/drizzle-kit-push
+- npx drizzle-kit push
+
