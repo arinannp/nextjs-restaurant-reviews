@@ -3,6 +3,8 @@ import type { NextRequest } from "next/server"
 import { getToken } from "next-auth/jwt"
 
 export async function middleware(request: NextRequest) {
+  console.log('middleware')
+  
   // Get the pathname of the request (e.g. /, /admin, /protected)
   const path = request.nextUrl.pathname
   console.log('middleware path =>', path)
