@@ -1,0 +1,46 @@
+name: Deploy to Vercel    # github-action name
+
+on:   # trigger action based on what
+  push:   # trigger based on push
+    tags:   # trigger by new tags
+      - "v**"   # when tags contain `v` in start of the tag
+
+jobs:                           # what action/step we will do after triggered
+  deploy:                     # job/step name
+    runs-on: ubuntu-latest    # the job run on what docker-image-platform
+    steps:                    # steps to execute
+      - name: vercel-hook     # step name
+        run: |                # step action
+          curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_Gx9iwpDMjcXy93ruJq2uB5S5BQ6D/EhBcnvpXu6"
+
+
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: start
+#         run: echo "job starting"
+#       - name: vercel-hook
+#         run: |
+#           curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_1cmKo7UkBKl6181Il2lujxnkUTAs/6pyTFg2hK9"
+#       - name: end
+#         run: echo "job finished"
+
+# jobs:
+#   start:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: start
+#         run: echo "job starting"
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: vercel-hook
+#         run: |
+#           curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_1cmKo7UkBKl6181Il2lujxnkUTAs/6pyTFg2hK9"
+#   end:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: end
+#         run: echo "job finished"
