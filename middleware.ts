@@ -2,25 +2,26 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { getToken } from "next-auth/jwt"
 
-export async function middleware(request: NextRequest) {
+export async function middleware(req: NextRequest) {
   console.log('middleware')
 
   // Get the pathname of the request (e.g. /, /admin, /protected)
-  const path = request.nextUrl.pathname
+  const path = req.nextUrl.pathname
   console.log('middleware path =>', path)
+
+  // Get session from cookie
+  const session = await getToken({
+    req,
+    secret: process.env.NEXTAUTH_SECRET,
+  })
+  console.log('middleware session =>', session)
 
   // Check if the path is an admin route
   if (path.startsWith("/admin")) {
-    const token = await getToken({
-      req: request,
-      secret: process.env.NEXTAUTH_SECRET,
-    })
-    console.log('middleware token =>', token)
-
-    // If no token or user is not admin, redirect to signin
-    if (!token || token.role !== "admin") {
-      const url = new URL("/auth/signin", request.url)
-      url.searchParams.set("callbackUrl", request.url)
+    // If no session or user is not admin, redirect to signin
+    if (!session || session.role !== "admin") {
+      const url = new URL("/auth/signin", req.url)
+      url.searchParams.set("callbackUrl", req.url)
       return NextResponse.redirect(url)
     }
   }
