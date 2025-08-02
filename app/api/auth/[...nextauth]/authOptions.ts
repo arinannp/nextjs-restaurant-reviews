@@ -56,7 +56,7 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
             role: user.role,
           },
-          process.env.JWT_SECRET!,
+          process.env.NEXT_PUBLIC_JWT_SECRET!,
           { expiresIn: '1d' },
         )
 
@@ -98,5 +98,5 @@ export const authOptions: NextAuthOptions = {
       return session
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
 }

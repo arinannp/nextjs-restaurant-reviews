@@ -13,7 +13,7 @@ export async function middleware(req: NextRequest) {
   // Get session from cookie
   const session = await getToken({
     req,
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
   })
   console.log('middleware session =>', session)
 

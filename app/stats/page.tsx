@@ -6,7 +6,7 @@ import { Star, TrendingUp, Users, MapPin } from "lucide-react"
 
 async function getStats() {
   try {
-    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/stats`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/stats`, {
       cache: "no-store",
     })
     if (!response.ok) throw new Error("Failed to fetch stats")

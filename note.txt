@@ -2,6 +2,7 @@ ________________________________________________________________________________
 # CLONE PROJECT AND INIT PROJECT
 - npm install OR npm -i
 - set dotenv file (generate random string: openssl rand -base64 32)
+- openssl rand -base64 32
 
 # In Git, feat, chore, and fix are commit types used in Conventional Commits 
 to categorize changes made to the codebase. feat signifies a new feature, fix indicates a bug fix, 
